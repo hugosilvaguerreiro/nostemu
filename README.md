@@ -4,7 +4,6 @@ Nostemu is a c++ gameboy (or chip-8) emulator, for now ... this emulator emerged
 
 
 # Project Structure
-
 ### bin 
 The output executables go here, both for the app and for any tests and spikes.
 ### build 
@@ -19,3 +18,9 @@ Any libs that get compiled by the project, third party or any needed in developm
 Test stuff out. Maybe sometimes its good to keep some of the garbage around.
 ### src
  The application and only the application’s source files.
+
+# Why no cmake?
+I did not use cmake for two reasons:
+* I did not plan to make my software protable
+* I wanted to go through the details (and hardwork) of manually compilling and
+linking all my files and managing my dependencies
