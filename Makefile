@@ -1,35 +1,28 @@
-BUILD=build
-BIN=$(PWD)/bin
+GCC	= g++
+NANAPATH = build/nana
+BIN	= bin/nostemu
+SOURCES = src/main.cpp
 
-SRC=src
-SRC_OBJS= main.o
-SRC_OBJS_OUT=$(patsubst %, $(BUILD)/%, $(SRC_OBJS))
+NANAINC = $(NANAPATH)/include
+NANALIB = $(NANAPATH)/build/bin
 
-CC=gcc
-CXX=g++
-RM=rm -f
-CPPFLAGS= -g -c -ansi -std=c++17 -Wall -pedantic
+INCS	= -I$(NANAINC)
+LIBS	= -L$(NANALIB) -lnana -lX11 -lpthread -lrt -lXft -lpng -lasound -lfontconfig -lstdc++fs
 
+LINKOBJ	= $(SOURCES:.cpp=.o)
 
-$(BUILD)/%.o : $(SRC)/%.cpp
-	$(CXX) -c $< -o $@ $(CPPFLAGS)
+$(BIN): $(LINKOBJ) $(NANALIB)/libnana.a
+	$(GCC) $(LINKOBJ) $(INCS) $(LIBS) -o $(BIN) -std=c++0x
 
-nostemu: $(SRC_OBJS_OUT)
-	$(CXX) -o $(BIN)/$@ $^
+.cpp.o:
+	$(GCC) -g -c $< -o $@ $(INCS) -std=c++0x
 
-.PHONY: clean run
-
-run:
-	$(BIN)/nostemu
+$(NANALIB):
+	make -f $(NANAPATH)/build/makefile/makefile
 
 clean:
-	$(RM) $(BUILD)/*
-	$(RM) $(BIN)/*
+	rm -f $(LINKOBJ)
+	rm -f $(BIN)
 
-
-
-# $@	the filename of the target
-# $^	the filenames of all dependencies
-# $?	the filenames of all dependencies that are newer than the target
-# $<	the filenames of the first dependency
-
+run:
+	$(BIN)

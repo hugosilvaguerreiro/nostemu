@@ -1,5 +1,6 @@
 # Nostemu
-Nostemu is a c++ gameboy (or chip-8) emulator, for now ... this emulator emerged by mixing the need for a personal project with nostalgia.
+Nostemu is a c++ gameboy emulator. 
+This emulator emerged by mixing the need for a personal project with nostalgia.
 
 
 
@@ -24,3 +25,32 @@ I did not use cmake for two reasons:
 * I did not plan to make my software protable
 * I wanted to go through the details (and hardwork) of manually compilling and
 linking all my files and managing my dependencies
+
+
+# Dependencies
+## Nana
+Nana is a third-party open source GUI library.
+
+Nana requires: libxft-dev
+
+## installing Nana
+1 - Download nana
+
+```
+git clone https://github.com/cnjinhao/nana.git
+cd nana/
+git checkout tags/v1.7.1
+```
+
+2- place the nana folder under the build/ folder in nostemu's root
+
+3- Build nana
+```
+cd nostemu/build/nana/build/
+make
+```
+
+
+
+
+
