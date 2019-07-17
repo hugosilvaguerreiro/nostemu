@@ -1,7 +1,13 @@
 GCC	= g++
 NANAPATH = build/nana
 BIN	= bin/nostemu
-SOURCES = src/main.cpp
+
+SRC = src
+
+CPU = $(SRC)/cpu
+CPU_SOURCES = cpu.cpp
+
+SOURCES = src/main.cpp $(patsubst %.cpp, $(CPU)/%.cpp, $(CPU_SOURCES))
 
 NANAINC = $(NANAPATH)/include
 NANALIB = $(NANAPATH)/build/bin
@@ -24,5 +30,5 @@ clean:
 	rm -f $(LINKOBJ)
 	rm -f $(BIN)
 
-run:
+run: clean $(BIN)
 	$(BIN)
