@@ -1,0 +1,1332 @@
+{
+    "columns": [
+        "x0",
+        "x1",
+        "x2",
+        "x3",
+        "x4",
+        "x5",
+        "x6",
+        "x7",
+        "x8",
+        "x9",
+        "xa",
+        "xb",
+        "xc",
+        "xd",
+        "xe",
+        "xf"
+    ],
+    "0x": [
+        {
+            "op": "NOP",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD BC,d16",
+            "time": "3  12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (BC),A",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC BC",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC B",
+            "time": "1  4",
+            "reg": "Z 0 H -"
+        },
+        {
+            "op": "DEC B",
+            "time": "1  4",
+            "reg": "Z 1 H -"
+        },
+        {
+            "op": "LD B,d8",
+            "time": "2  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "RLCA",
+            "time": "1  4",
+            "reg": "0 0 0 C"
+        },
+        {
+            "op": "LD (a16),SP",
+            "time": "3  20",
+            "reg": "- - - -"
+        },
+        {
+            "op": "ADD HL,BC",
+            "time": "1  8",
+            "reg": "- 0 H C"
+        },
+        {
+            "op": "LD A,(BC)",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "DEC BC",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC C",
+            "time": "1  4",
+            "reg": "Z 0 H -"
+        },
+        {
+            "op": "DEC C",
+            "time": "1  4",
+            "reg": "Z 1 H -"
+        },
+        {
+            "op": "LD C,d8",
+            "time": "2  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "RRCA",
+            "time": "1  4",
+            "reg": "0 0 0 C"
+        }
+    ],
+    "1x": [
+        {
+            "op": "STOP 0",
+            "time": "2  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD DE,d16",
+            "time": "3  12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (DE),A",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC DE",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC D",
+            "time": "1  4",
+            "reg": "Z 0 H -"
+        },
+        {
+            "op": "DEC D",
+            "time": "1  4",
+            "reg": "Z 1 H -"
+        },
+        {
+            "op": "LD D,d8",
+            "time": "2  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "RLA",
+            "time": "1  4",
+            "reg": "0 0 0 C"
+        },
+        {
+            "op": "JR r8",
+            "time": "2  12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "ADD HL,DE",
+            "time": "1  8",
+            "reg": "- 0 H C"
+        },
+        {
+            "op": "LD A,(DE)",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "DEC DE",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC E",
+            "time": "1  4",
+            "reg": "Z 0 H -"
+        },
+        {
+            "op": "DEC E",
+            "time": "1  4",
+            "reg": "Z 1 H -"
+        },
+        {
+            "op": "LD E,d8",
+            "time": "2  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "RRA",
+            "time": "1  4",
+            "reg": "0 0 0 C"
+        }
+    ],
+    "2x": [
+        {
+            "op": "JR NZ,r8",
+            "time": "2  12/8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD HL,d16",
+            "time": "3  12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (HL+),A",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC HL",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC H",
+            "time": "1  4",
+            "reg": "Z 0 H -"
+        },
+        {
+            "op": "DEC H",
+            "time": "1  4",
+            "reg": "Z 1 H -"
+        },
+        {
+            "op": "LD H,d8",
+            "time": "2  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "DAA",
+            "time": "1  4",
+            "reg": "Z - 0 C"
+        },
+        {
+            "op": "JR Z,r8",
+            "time": "2  12/8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "ADD HL,HL",
+            "time": "1  8",
+            "reg": "- 0 H C"
+        },
+        {
+            "op": "LD A,(HL+)",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "DEC HL",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC L",
+            "time": "1  4",
+            "reg": "Z 0 H -"
+        },
+        {
+            "op": "DEC L",
+            "time": "1  4",
+            "reg": "Z 1 H -"
+        },
+        {
+            "op": "LD L,d8",
+            "time": "2  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "CPL",
+            "time": "1  4",
+            "reg": "- 1 1 -"
+        }
+    ],
+    "3x": [
+        {
+            "op": "JR NC,r8",
+            "time": "2  12/8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD SP,d16",
+            "time": "3  12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (HL-),A",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC SP",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC (HL)",
+            "time": "1  12",
+            "reg": "Z 0 H -"
+        },
+        {
+            "op": "DEC (HL)",
+            "time": "1  12",
+            "reg": "Z 1 H -"
+        },
+        {
+            "op": "LD (HL),d8",
+            "time": "2  12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "SCF",
+            "time": "1  4",
+            "reg": "- 0 0 1"
+        },
+        {
+            "op": "JR C,r8",
+            "time": "2  12/8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "ADD HL,SP",
+            "time": "1  8",
+            "reg": "- 0 H C"
+        },
+        {
+            "op": "LD A,(HL-)",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "DEC SP",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "INC A",
+            "time": "1  4",
+            "reg": "Z 0 H -"
+        },
+        {
+            "op": "DEC A",
+            "time": "1  4",
+            "reg": "Z 1 H -"
+        },
+        {
+            "op": "LD A,d8",
+            "time": "2  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "CCF",
+            "time": "1  4",
+            "reg": "- 0 0 C"
+        }
+    ],
+    "4x": [
+        {
+            "op": "LD B,B",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD B,C",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD B,D",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD B,E",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD B,H",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD B,L",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD B,(HL)",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD B,A",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD C,B",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD C,C",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD C,D",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD C,E",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD C,H",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD C,L",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD C,(HL)",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD C,A",
+            "time": "1  4",
+            "reg": "- - - -"
+        }
+    ],
+    "5x": [
+        {
+            "op": "LD D,B",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD D,C",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD D,D",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD D,E",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD D,H",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD D,L",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD D,(HL)",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD D,A",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD E,B",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD E,C",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD E,D",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD E,E",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD E,H",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD E,L",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD E,(HL)",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD E,A",
+            "time": "1  4",
+            "reg": "- - - -"
+        }
+    ],
+    "6x": [
+        {
+            "op": "LD H,B",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD H,C",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD H,D",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD H,E",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD H,H",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD H,L",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD H,(HL)",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD H,A",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD L,B",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD L,C",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD L,D",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD L,E",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD L,H",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD L,L",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD L,(HL)",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD L,A",
+            "time": "1  4",
+            "reg": "- - - -"
+        }
+    ],
+    "7x": [
+        {
+            "op": "LD (HL),B",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (HL),C",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (HL),D",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (HL),E",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (HL),H",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (HL),L",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "HALT",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (HL),A",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD A,B",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD A,C",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD A,D",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD A,E",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD A,H",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD A,L",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD A,(HL)",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD A,A",
+            "time": "1  4",
+            "reg": "- - - -"
+        }
+    ],
+    "8x": [
+        {
+            "op": "ADD A,B",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADD A,C",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADD A,D",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADD A,E",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADD A,H",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADD A,L",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADD A,(HL)",
+            "time": "1  8",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADD A,A",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADC A,B",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADC A,C",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADC A,D",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADC A,E",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADC A,H",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADC A,L",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADC A,(HL)",
+            "time": "1  8",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "ADC A,A",
+            "time": "1  4",
+            "reg": "Z 0 H C"
+        }
+    ],
+    "9x": [
+        {
+            "op": "SUB B",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SUB C",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SUB D",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SUB E",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SUB H",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SUB L",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SUB (HL)",
+            "time": "1  8",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SUB A",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SBC A,B",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SBC A,C",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SBC A,D",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SBC A,E",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SBC A,H",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SBC A,L",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SBC A,(HL)",
+            "time": "1  8",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "SBC A,A",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        }
+    ],
+    "ax": [
+        {
+            "op": "AND B",
+            "time": "1  4",
+            "reg": "Z 0 1 0"
+        },
+        {
+            "op": "AND C",
+            "time": "1  4",
+            "reg": "Z 0 1 0"
+        },
+        {
+            "op": "AND D",
+            "time": "1  4",
+            "reg": "Z 0 1 0"
+        },
+        {
+            "op": "AND E",
+            "time": "1  4",
+            "reg": "Z 0 1 0"
+        },
+        {
+            "op": "AND H",
+            "time": "1  4",
+            "reg": "Z 0 1 0"
+        },
+        {
+            "op": "AND L",
+            "time": "1  4",
+            "reg": "Z 0 1 0"
+        },
+        {
+            "op": "AND (HL)",
+            "time": "1  8",
+            "reg": "Z 0 1 0"
+        },
+        {
+            "op": "AND A",
+            "time": "1  4",
+            "reg": "Z 0 1 0"
+        },
+        {
+            "op": "XOR B",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "XOR C",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "XOR D",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "XOR E",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "XOR H",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "XOR L",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "XOR (HL)",
+            "time": "1  8",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "XOR A",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        }
+    ],
+    "bx": [
+        {
+            "op": "OR B",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "OR C",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "OR D",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "OR E",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "OR H",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "OR L",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "OR (HL)",
+            "time": "1  8",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "OR A",
+            "time": "1  4",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "CP B",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "CP C",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "CP D",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "CP E",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "CP H",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "CP L",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "CP (HL)",
+            "time": "1  8",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "CP A",
+            "time": "1  4",
+            "reg": "Z 1 H C"
+        }
+    ],
+    "cx": [
+        {
+            "op": "RET NZ",
+            "time": "1  20/8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "POP BC",
+            "time": "1  12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "JP NZ,a16",
+            "time": "3  16/12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "JP a16",
+            "time": "3  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "CALL NZ,a16",
+            "time": "3  24/12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "PUSH BC",
+            "time": "1  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "ADD A,d8",
+            "time": "2  8",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "RST 00H",
+            "time": "1  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "RET Z",
+            "time": "1  20/8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "RET",
+            "time": "1  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "JP Z,a16",
+            "time": "3  16/12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "PREFIX CB",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "CALL Z,a16",
+            "time": "3  24/12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "CALL a16",
+            "time": "3  24",
+            "reg": "- - - -"
+        },
+        {
+            "op": "ADC A,d8",
+            "time": "2  8",
+            "reg": "Z 0 H C"
+        },
+        {
+            "op": "RST 08H",
+            "time": "1  16",
+            "reg": "- - - -"
+        }
+    ],
+    "dx": [
+        {
+            "op": "RET NC",
+            "time": "1  20/8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "POP DE",
+            "time": "1  12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "JP NC,a16",
+            "time": "3  16/12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "NOP",
+            "time": "",
+            "reg": ""
+        },
+        {
+            "op": "CALL NC,a16",
+            "time": "3  24/12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "PUSH DE",
+            "time": "1  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "SUB d8",
+            "time": "2  8",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "RST 10H",
+            "time": "1  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "RET C",
+            "time": "1  20/8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "RETI",
+            "time": "1  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "JP C,a16",
+            "time": "3  16/12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "NOP",
+            "time": "",
+            "reg": ""
+        },
+        {
+            "op": "CALL C,a16",
+            "time": "3  24/12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "NOP",
+            "time": "",
+            "reg": ""
+        },
+        {
+            "op": "SBC A,d8",
+            "time": "2  8",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "RST 18H",
+            "time": "1  16",
+            "reg": "- - - -"
+        }
+    ],
+    "ex": [
+        {
+            "op": "LDH (a8),A",
+            "time": "2  12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "POP HL",
+            "time": "1  12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (C),A",
+            "time": "2  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "NOP",
+            "time": "",
+            "reg": ""
+        },
+        {
+            "op": "NOP",
+            "time": "",
+            "reg": ""
+        },
+        {
+            "op": "PUSH HL",
+            "time": "1  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "AND d8",
+            "time": "2  8",
+            "reg": "Z 0 1 0"
+        },
+        {
+            "op": "RST 20H",
+            "time": "1  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "ADD SP,r8",
+            "time": "2  16",
+            "reg": "0 0 H C"
+        },
+        {
+            "op": "JP (HL)",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD (a16),A",
+            "time": "3  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "NOP",
+            "time": "",
+            "reg": ""
+        },
+        {
+            "op": "NOP",
+            "time": "",
+            "reg": ""
+        },
+        {
+            "op": "NOP",
+            "time": "",
+            "reg": ""
+        },
+        {
+            "op": "XOR d8",
+            "time": "2  8",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "RST 28H",
+            "time": "1  16",
+            "reg": "- - - -"
+        }
+    ],
+    "fx": [
+        {
+            "op": "LDH A,(a8)",
+            "time": "2  12",
+            "reg": "- - - -"
+        },
+        {
+            "op": "POP AF",
+            "time": "1  12",
+            "reg": "Z N H C"
+        },
+        {
+            "op": "LD A,(C)",
+            "time": "2  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "DI",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "NOP",
+            "time": "",
+            "reg": ""
+        },
+        {
+            "op": "PUSH AF",
+            "time": "1  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "OR d8",
+            "time": "2  8",
+            "reg": "Z 0 0 0"
+        },
+        {
+            "op": "RST 30H",
+            "time": "1  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD HL,SP+r8",
+            "time": "2  12",
+            "reg": "0 0 H C"
+        },
+        {
+            "op": "LD SP,HL",
+            "time": "1  8",
+            "reg": "- - - -"
+        },
+        {
+            "op": "LD A,(a16)",
+            "time": "3  16",
+            "reg": "- - - -"
+        },
+        {
+            "op": "EI",
+            "time": "1  4",
+            "reg": "- - - -"
+        },
+        {
+            "op": "NOP",
+            "time": "",
+            "reg": ""
+        },
+        {
+            "op": "NOP",
+            "time": "",
+            "reg": ""
+        },
+        {
+            "op": "CP d8",
+            "time": "2  8",
+            "reg": "Z 1 H C"
+        },
+        {
+            "op": "RST 38H",
+            "time": "1  16",
+            "reg": "- - - -"
+        }
+    ]
+}
