@@ -1,18 +1,31 @@
-#include <nana/gui.hpp>
+#include "renderer.h"
+
+
+class Nostemu : public Application {
+    Renderer* r;
+
+    public:
+        Nostemu(Renderer *r) {
+            this->r = r;
+        }
+
+        void execute() {
+            r->renderFrame();
+        }
+
+        void stop() {
+            
+        }
+};
 
 int main()
-{
-    using namespace nana;
-    form fm;
-    drawing{ fm }.draw([](paint::graphics& graph)
-    {
-        std::string hw = "Hello, world!";
-        auto hw_size = graph.text_extent_size(hw);
-        graph.string(
-            point{ static_cast<int>(graph.width() - hw_size.width) / 2,
-                    static_cast<int>(graph.height() - hw_size.height) / 2}
-            , hw);
-    });
-    fm.show();
-    exec();
+{   
+    WINDOW_SIZE size = {160, 144}; //window resolution
+
+    Renderer* r = new Renderer(size, "nostemu");
+    
+    Nostemu* n = new Nostemu(r);
+
+    r->start(n);
+
 }
