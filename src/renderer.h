@@ -42,7 +42,7 @@ class Renderer {
 
         Renderer(WINDOW_SIZE size, std::string title="window");
 
-        void renderCircle();
+        //void renderCircle();
         /*
             Renders a square
         */

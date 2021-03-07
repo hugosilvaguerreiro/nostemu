@@ -10,7 +10,9 @@ SRC = src
 CPU = $(SRC)/cpu
 CPU_SOURCES = cpu.cpp
 
-SOURCES = src/parser/parser.cpp src/renderer.cpp src/main.cpp  #$(patsubst %.cpp, $(CPU)/%.cpp, $(CPU_SOURCES))
+COMMANDS = (shell find $(CPU)/commands -name "*.cpp")
+
+SOURCES = src/parser/parser.cpp src/renderer.cpp src/main.cpp  $(patsubst %.cpp, $(CPU)/%.cpp, $(CPU_SOURCES))
 INCS	= -lsfml-graphics -lsfml-window -lsfml-system
 LIBS	= 
 
@@ -19,10 +21,10 @@ LINKOBJ	= $(SOURCES:.cpp=.o)
 all: clean $(BIN)
 
 $(BIN): $(LINKOBJ)
-	$(GCC) -g $(LINKOBJ) $(INCS) $(LIBS) -o $(BIN) -std=c++0x
+	$(GCC) -g -Wall -Wextra -pedantic $(LINKOBJ) $(INCS) $(LIBS) -o $(BIN) -std=c++2a
 
 .cpp.o:
-	$(GCC) -g -c $< -o $@ $(INCS) -std=c++0x
+	$(GCC) -g -Wall -Wextra -pedantic -c $< -o $@ $(INCS) -std=c++2a
 
 clean:
 	rm -f $(LINKOBJ)

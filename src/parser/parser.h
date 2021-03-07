@@ -3,30 +3,25 @@
 
 #include <vector>
 
-class OpCode {
-    public:
-        char first_part;
-        char second_part;
-        bool is_cb = false;
+#include "../cpu/commands/all.h"
 
-        OpCode(char first, char second, bool is_cb) : 
-                first_part(first), second_part(second), is_cb(is_cb) {}
-
-        OpCode(char first, char second) : OpCode(first, second, false) {}
-};
-
+OpCode convertByteToOpCode(unsigned char initialByte);
+char processNibble(unsigned char nibble);
 
 class Parser {
-        OpCode convertByteToOpCode(unsigned char initialByte);
-        char processNibble(unsigned char nibble);
 
         std::vector<OpCode> rawOpCodes; //stores the rom translated to raw opcodes
+        Rom rom;
+
+        //parses the raw binary ROM file into rawOpCodes. Translates all bytes to OpCode structs.
+        void parseRawBinary(char* filename);
+        void parseOpCodes();
 
     public:
         Parser();
-        
-        //parses the raw binary ROM file into rawOpCodes. Translates all bytes to OpCode structs.
         void parse(char* filename);
+        
+
 
 };
 

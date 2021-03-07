@@ -18,19 +18,29 @@
 }*/
 
 
-void print_operation(OpCode* c) {
+/*void print_operation(OpCode* c) {
     
     if(c->is_cb) {
         std::cout << " PREFIX ";
     }
     std::cout << c->first_part << c->second_part;   
+}*/
+
+
+Parser::Parser() : rawOpCodes(), rom() {}
+
+
+
+
+void parsePrefixCB(int& currentIndex, std::vector<unsigned char>& buffer, Rom& rom) {
+    currentIndex++; //advance index to get the new instruction;
+
+    OpCode code = convertByteToOpCode(buffer.at(currentIndex));
 }
 
 
-Parser::Parser() : rawOpCodes(){}
+void Parser::parseRawBinary(char* filename) {
 
-
-void Parser::parse(char* filename) {
     //Read binary file
     std::ifstream input( filename, std::ios::binary );
     // copies all data into buffer
@@ -38,9 +48,16 @@ void Parser::parse(char* filename) {
 
     //Convert all bytes to hex strings;   
     bool found_cb = false;
+    for(int i =0; i < buffer.size(); i++) {
+        OpCode code = convertByteToOpCode(buffer.at(i));
+
+        if(code.first_part == 'C' && code.second_part == 'B') {
+            parsePrefixCB(i, buffer, this->rom);
+        }
+    }
 
     for(unsigned char rawOpCode : buffer) {
-        OpCode code = convertByteToOpCode(rawOpCode);
+        
         
         //second type of instruction that is prefixed by the "CB" instruction
         if(code.first_part == 'C' && code.second_part == 'B') { 
@@ -62,23 +79,26 @@ void Parser::parse(char* filename) {
         }
     }
 
-    for(OpCode op : this->rawOpCodes) {
+    /*for(OpCode op : this->rawOpCodes) {
         print_operation(&op);
-    }
+    }*/
+}
+
+/*
+* Converts all opCodes to 
+*/
+void Parser::parseOpCodes() {
+    /*for(OpCode op : this->rawOpCodes) {
+        //rom.
+    }*/
+}
+
+void Parser::parse(char* filename) {
+    this->parseRawBinary(filename);
 }
 
 
-char Parser::processNibble(unsigned char nibble) {
-        if(nibble<10U) {
-        return (char)('0'+nibble);
-    } else {
-     nibble-=10U;
-     return (char)('A'+nibble);
-    }
-}
-
-
-OpCode Parser::convertByteToOpCode(unsigned char initialByte) {
+OpCode convertByteToOpCode(unsigned char initialByte) {
     unsigned char firstNibble=0U;  // a Nibble is 4 bits, half a byte, one hexadecimal character
     unsigned char secondNibble=0U;
 
@@ -91,3 +111,14 @@ OpCode Parser::convertByteToOpCode(unsigned char initialByte) {
 }
 
 
+/*
+* Converts a Nibble into its HEX char correspondent
+*/
+char processNibble(unsigned char nibble) {
+        if(nibble<10U) {
+        return (char)('0'+nibble);
+    } else {
+     nibble-=10U;
+     return (char)('A'+nibble);
+    }
+}

@@ -1,7 +1,9 @@
 #include <cstdlib>
 
+#include "cpu/commands/all.h"
 #include "renderer.h"
 #include "parser/parser.h"
+#include "runner/translator_runner.h"
 
 
 class Nostemu : public Application {
@@ -13,16 +15,17 @@ class Nostemu : public Application {
         Nostemu(Renderer* r, char* rom) {
             this->renderer = r;
             this->rom = rom;
+
             this->parser = Parser();
+            parser.parse(rom);
+
+            //TranslatorROMRunner tr = TranslatorROMRunner();
+            
         }
 
         void execute() {
-            //parser.parse(this->rom);
-
-            
             renderer->renderFrame();
             //exit(0);
-            
         }
 
         void stop() {
