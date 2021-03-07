@@ -56,7 +56,7 @@ void Parser::parseRawBinary(char* filename) {
         }
     }
 
-    for(unsigned char rawOpCode : buffer) {
+    /*for(unsigned char rawOpCode : buffer) {
         
         
         //second type of instruction that is prefixed by the "CB" instruction
@@ -73,11 +73,11 @@ void Parser::parseRawBinary(char* filename) {
                           << code.second_part << " | " 
                           << cb->instruction->first_part << cb->instruction->second_part << "\n";*/
 
-            } else {
+            /*} else {
                 this->rawOpCodes.push_back(code);
             }
         }
-    }
+    }*/
 
     /*for(OpCode op : this->rawOpCodes) {
         print_operation(&op);
