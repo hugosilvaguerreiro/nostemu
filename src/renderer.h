@@ -32,16 +32,15 @@ class Application {
 
 
 class Renderer {
+        sf::Image         current_frame;
+        sf::Texture       current_frame_texture;
+        sf::Sprite        current_frame_sprite;
 
     public:
         WINDOW_SIZE       size;
-        sf::RenderWindow* window;
-        sf::Image*        current_frame;
-        sf::Texture*      current_frame_texture;
-        sf::Sprite*       current_frame_sprite;
+        sf::RenderWindow  window;
 
         Renderer(WINDOW_SIZE size, std::string title="window");
-        ~Renderer();
 
         void renderCircle();
         /*
@@ -68,10 +67,8 @@ class Renderer {
         // returns true if the window is still open, false otherwise
         bool windowOpen();
 
-        sf::RenderWindow* getWindow();
-
         //starts
-        void start(Application* app);
+        void start(Application& app);
 };
 
 

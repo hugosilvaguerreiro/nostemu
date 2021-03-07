@@ -6,16 +6,12 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Window/Window.hpp>
 
-Renderer::Renderer(WINDOW_SIZE window_size, std::string title) {
+Renderer::Renderer(WINDOW_SIZE window_size, std::string title) : window(sf::VideoMode(window_size.width, window_size.height), title) {
     this->size = window_size;
-    this->window = new sf::RenderWindow(
-                            sf::VideoMode(window_size.width, window_size.height), 
-                            title);
-
-    this->current_frame = new sf::Image();
-    this->current_frame->create(window_size.width, window_size.height);
-    this->current_frame_sprite = new sf::Sprite();
-    this->current_frame_texture = new sf::Texture();
+    this->current_frame =  sf::Image();
+    this->current_frame.create(window_size.width, window_size.height);
+    this->current_frame_sprite = sf::Sprite();
+    this->current_frame_texture = sf::Texture();
 }
 
 void Renderer::renderCircle() {
@@ -28,18 +24,18 @@ void Renderer::renderCircle() {
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
-    while (this->window->isOpen())
+    while (this->window.isOpen())
     {
         sf::Event event;
-        while (window->pollEvent(event))
+        while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
-                window->close();
+                window.close();
         }
 
-        window->clear();
-        window->draw(shape);
-        window->display();
+        window.clear();
+        window.draw(shape);
+        window.display();
     }
 
 }
@@ -68,53 +64,43 @@ void Renderer::renderSquare(int x, int y, int size, RGBA color, bool stroke, int
 
 void Renderer::checkEvents() {
     sf::Event event;
-    while (this->window->pollEvent(event))
+    while (this->window.pollEvent(event))
     {
         if (event.type == sf::Event::Closed)
-            window->close();
+            this->window.close();
     }
 }
 
 void Renderer::drawPixel(unsigned int x, unsigned int y, RGBA color) {
     sf::Color c = sf::Color(color.R, color.G, color.B, color.A);
-    this->current_frame->setPixel(x,  y, c);
+    this->current_frame.setPixel(x,  y, c);
 }
 
 void Renderer::clearFrame() {
-    this->current_frame->create(this->size.width, this->size.height);
+    this->current_frame.create(this->size.width, this->size.height);
 }
 
 void Renderer::renderFrame() {
-    this->current_frame_texture->loadFromImage(*this->current_frame);
-    this->current_frame_sprite->setTexture(*this->current_frame_texture, true);
+    this->current_frame_texture.loadFromImage(this->current_frame);
+    this->current_frame_sprite.setTexture(this->current_frame_texture, true);
             
-    this->window->clear();
-    this->window->draw(*this->current_frame_sprite);
-    this->window->display();
+    this->window.clear();
+    this->window.draw(this->current_frame_sprite);
+    this->window.display();
     
 }
 
 bool Renderer::windowOpen() {
-    return this->window->isOpen();
-}
-
-sf::RenderWindow* Renderer::getWindow()  {
-    return this->window;
-}
-
-Renderer::~Renderer(){
-    delete this->window;
-    delete this->current_frame_sprite;
-    delete this->current_frame_texture;
-    delete this->current_frame;
+    return this->window.isOpen();
 }
 
 
-void Renderer::start(Application* app) {
+
+void Renderer::start(Application& app) {
     while (this->windowOpen()) {
         this->checkEvents(); //checks if window has been closed
-        app->execute();
-        this->window->clear();
+        app.execute();
+        this->window.clear();
     }
 }
 

@@ -1,16 +1,28 @@
+#include <cstdlib>
+
 #include "renderer.h"
+#include "parser/parser.h"
 
 
 class Nostemu : public Application {
-    Renderer* r;
+    Renderer* renderer;
+    Parser parser;
+    char* rom;
 
     public:
-        Nostemu(Renderer *r) {
-            this->r = r;
+        Nostemu(Renderer* r, char* rom) {
+            this->renderer = r;
+            this->rom = rom;
+            this->parser = Parser();
         }
 
         void execute() {
-            r->renderFrame();
+            //parser.parse(this->rom);
+
+            
+            renderer->renderFrame();
+            //exit(0);
+            
         }
 
         void stop() {
@@ -18,14 +30,17 @@ class Nostemu : public Application {
         }
 };
 
-int main()
+int main(int argc, char *argv[])
 {   
     WINDOW_SIZE size = {160, 144}; //window resolution
 
-    Renderer* r = new Renderer(size, "nostemu");
+    Renderer r(size, "nostemu");
     
-    Nostemu* n = new Nostemu(r);
-
-    r->start(n);
+    if(argc == 1) {
+        std::cout << "Error: please specify the location of the ROM\n";
+    } else {
+        Nostemu n(&r, argv[1]);
+        r.start(n);
+    }
 
 }
