@@ -7,7 +7,7 @@ BIN	= bin/$(PROGRAM_NAME)
 
 SRC = src
 
-CPU = $(SRC)/cpu
+CPU = $(SRC)/core
 CPU_SOURCES = cpu.cpp
 
 COMMANDS = (shell find $(CPU)/commands -name "*.cpp")
@@ -21,10 +21,10 @@ LINKOBJ	= $(SOURCES:.cpp=.o)
 all: clean $(BIN)
 
 $(BIN): $(LINKOBJ)
-	$(GCC) -g -Wall -Wextra -pedantic $(LINKOBJ) $(INCS) $(LIBS) -o $(BIN) -std=c++2a
+	$(GCC) -g -Wall -pedantic $(LINKOBJ) $(INCS) $(LIBS) -o $(BIN) -std=c++2a
 
 .cpp.o:
-	$(GCC) -g -Wall -Wextra -pedantic -c $< -o $@ $(INCS) -std=c++2a
+	$(GCC) -g -Wall -pedantic -c $< -o $@ $(INCS) -std=c++2a
 
 clean:
 	rm -f $(LINKOBJ)

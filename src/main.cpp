@@ -1,6 +1,6 @@
 #include <cstdlib>
 
-#include "cpu/commands/all.h"
+#include "core/commands/all.h"
 #include "renderer.h"
 #include "parser/parser.h"
 #include "runner/translator_runner.h"
@@ -10,6 +10,7 @@ class Nostemu : public Application {
     Renderer* renderer;
     Parser parser;
     char* rom;
+    TranslatorROMRunner tr;
 
     public:
         Nostemu(Renderer* r, char* rom) {
@@ -19,13 +20,16 @@ class Nostemu : public Application {
             this->parser = Parser();
             parser.parse(rom);
 
-            //TranslatorROMRunner tr = TranslatorROMRunner();
-            
         }
 
         void execute() {
-            renderer->renderFrame();
-            //exit(0);
+        /*
+        * This function is called every frame
+        */
+            tr.visitROM(parser.rom);
+            //renderer->renderFrame();
+            std::cout << parser.rom.instructions.size() << "\n";
+            exit(0);
         }
 
         void stop() {

@@ -5,6 +5,8 @@
 #include <vector>
 
 #include "parser.h"
+#include "parser_opcodes_functions.h"
+#include "parser_prefix_cb_opcodes_functions.h"
 
 
 /*int getFileSizeInBytes(char* filename) {
@@ -32,13 +34,6 @@ Parser::Parser() : rawOpCodes(), rom() {}
 
 
 
-void parsePrefixCB(int& currentIndex, std::vector<unsigned char>& buffer, Rom& rom) {
-    currentIndex++; //advance index to get the new instruction;
-
-    OpCode code = convertByteToOpCode(buffer.at(currentIndex));
-}
-
-
 void Parser::parseRawBinary(char* filename) {
 
     //Read binary file
@@ -47,51 +42,19 @@ void Parser::parseRawBinary(char* filename) {
     std::vector<unsigned char> buffer(std::istreambuf_iterator<char>(input), {});
 
     //Convert all bytes to hex strings;   
-    bool found_cb = false;
-    for(int i =0; i < buffer.size(); i++) {
-        OpCode code = convertByteToOpCode(buffer.at(i));
+    for(int i =0; i < (int)buffer.size(); i++) {
+        OpCode code = convertByteToOpCode(buffer.at(i)); // This isn't necessary, it just makes the parser run slower, but its convenient 
 
+        //std::cout << "( " << code.first_part << code.second_part << " , " << (int)buffer.at(i) << ") ";
         if(code.first_part == 'C' && code.second_part == 'B') {
-            parsePrefixCB(i, buffer, this->rom);
+
+            processPrefixCBcode(code, i, buffer, this->rom);
+        } else {
+            processOpcode(code, i, buffer, this->rom);
         }
     }
-
-    /*for(unsigned char rawOpCode : buffer) {
-        
-        
-        //second type of instruction that is prefixed by the "CB" instruction
-        if(code.first_part == 'C' && code.second_part == 'B') { 
-            found_cb = true;
-            continue; //the next instruction is the one we are interested
-        } else {
-            if(found_cb) {
-                
-                found_cb = false;
-                code.is_cb = true;
-                this->rawOpCodes.push_back(code);
-                /*std::cout << "CB" << code.first_part 
-                          << code.second_part << " | " 
-                          << cb->instruction->first_part << cb->instruction->second_part << "\n";*/
-
-            /*} else {
-                this->rawOpCodes.push_back(code);
-            }
-        }
-    }*/
-
-    /*for(OpCode op : this->rawOpCodes) {
-        print_operation(&op);
-    }*/
 }
 
-/*
-* Converts all opCodes to 
-*/
-void Parser::parseOpCodes() {
-    /*for(OpCode op : this->rawOpCodes) {
-        //rom.
-    }*/
-}
 
 void Parser::parse(char* filename) {
     this->parseRawBinary(filename);
@@ -106,7 +69,7 @@ OpCode convertByteToOpCode(unsigned char initialByte) {
     firstNibble=(initialByte>>4);  // isolate first 4 bits
     secondNibble=(initialByte&0x0F);  // isolate last 4 bits
 
-    return OpCode(processNibble(firstNibble), processNibble(secondNibble));
+    return OpCode(processNibble(firstNibble), processNibble(secondNibble), initialByte);
 
 }
 
