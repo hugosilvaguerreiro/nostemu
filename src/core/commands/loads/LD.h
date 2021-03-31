@@ -60,5 +60,15 @@
 
 #ifndef LD_ 
 #define LD_
-class  LD {};
+
+#include "../../cpu.h"
+#include "../../data.h"
+
+class  LD {
+    Data data;
+    REGISTER r1, r2;
+
+        
+};
+
 #endif

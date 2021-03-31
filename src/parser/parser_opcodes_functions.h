@@ -17,7 +17,7 @@
 #include <iostream>
 #include <string>
 
-static NOP n; //this instruction does nothing and is allways the same, therefore we can always use the same reference
+static NOP n; //this instruction does nothing and is always the same, therefore we can always use the same reference
 
 inline void parseNOP_00(OpCode& code, int& index, std::vector<unsigned char>& buffer, Rom& rom) {
 	rom.addInstruction(n);
